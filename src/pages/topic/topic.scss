@@ -1,0 +1,10 @@
+td a {
+    width: 100%;
+}
+th,td{
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+}
+tr td:nth-child(3) a{
+    font-weight: 600 ;
+}
