@@ -1,4 +1,4 @@
-const SERVER = "http://localhost:3002/";
+const SERVER = "https://database-pro-5-hign1989j-pham-duc-toan.vercel.app/";
 
 export const get = async (path) => {
   const response = await fetch(SERVER + path);
