@@ -5,10 +5,11 @@ import Logout from "../pages/logout";
 import Topic from "../pages/topic";
 import Quiz from "../pages/quiz";
 import Login from "../pages/auth/login";
-import AuthMiddleware from "../middleware/auth"
+import AuthMiddleware from "../middleware/callAPI"
 import Error404 from "../pages/notFoundPage/404"
 import DetailAnswer from "../pages/detailAnswers";
 import Register from "../pages/auth/register";
+import ReqLogin from "../middleware/reqLogin";
 export const routes = [
   {
     path: "/",
@@ -18,16 +19,17 @@ export const routes = [
     children: [
       {
         index: true,
-        element: <Home />
+        element:<ReqLogin>
+                  <Home />
+                </ReqLogin> 
+        
       },
       {
         path: "answers",
-        element: <Answer />,
-        children: [
-          {
-            
-          }
-        ]
+        element:<ReqLogin>
+                  <Answer />
+                </ReqLogin>
+                  
       },
       {
         path: "topic",
@@ -42,10 +44,15 @@ export const routes = [
       {
         path: "quiz/:topicId",
         element:<Quiz/>
+                
       },
       {
         path: "detail/:id",
-        element: <DetailAnswer />
+        element: 
+                <ReqLogin>
+                  <DetailAnswer />
+                </ReqLogin>
+        
       }
     ]
   },

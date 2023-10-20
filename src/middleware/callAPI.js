@@ -1,6 +1,6 @@
 import  getCookieValue  from "../helpers/getCookie";
 import { useEffect, useState } from "react";
-import { getListUser } from "../../src/services/usersServices";
+import { getListUser } from "../services/usersServices";
 import { getListTopic } from "../services/topicServices";
 import { getQuestion } from "../services/questionServices";
 import {useDispatch } from "react-redux";
@@ -16,6 +16,7 @@ const AuthMiddleware = (props) => {
     const fetchApi = async () => {
       const data = await getListUser();
       setUsers(data);
+      c=1;
     }
     useEffect(() => {
       fetchApi();  
@@ -37,21 +38,19 @@ const AuthMiddleware = (props) => {
     const token = getCookieValue('token');
     const foundItem = users.find(item => item.token === token);
     const dispatch =useDispatch();
-    if(foundItem ) dispatch(setInforUser(foundItem));
+    if(foundItem ) {
+      dispatch(setInforUser(foundItem));
+  
+    }
     if(questions && questions.length>0) dispatch(setQuestionList(questions));
     if(topics && topics.length>0) dispatch(setTopicList(topics))
-    
-    
-    if(foundItem && questions && topics && questions.length>0 && topics.length>0){
-       return <>{props.children}</>;
-        
-    }
-    else {
-      
-      if(c==3){
-        window.location.href="/login";
+  
+    if( questions && topics && questions.length>0 && topics.length>0){
+      if(c){
+          return <>{props.children}</>;
       }
+      
     }
-    c+=1;
+    
 };
 export default AuthMiddleware;

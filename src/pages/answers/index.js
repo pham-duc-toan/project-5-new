@@ -15,7 +15,7 @@ const Answer = () => {
   const questions = useSelector(state => state.questionList);
   const [answers, setAnswers] = useState([]);
   const foundItem = useSelector(state => state.inforUser);
-
+  // console.log(foundItem);
   useEffect(() => {
     const fetchApi2 = async () => {
       const data = await getAnswers();

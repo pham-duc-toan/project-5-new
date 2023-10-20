@@ -6,7 +6,6 @@ const checkAnswer= (answer, correct)=>{
             let ans = answer.find((item) => item.questionId === correct[i].id);
             if(ans){
                 if(ans.answer === correct[i].correctAnswer)cnt+=1;
-                
             }
         }
         return `${cnt}/${correct.length}`;

@@ -1,6 +1,29 @@
 .colorGreen{
-    background-color: green;
+    color: green;
+    text-decoration: underline;
+    font-weight: 600;
 }
 .colorRed {
     color: red;
+    font-style: italic;
+}
+.questions {
+    margin-bottom: 5px;
+    background-color: #ddd;
+}
+.answer{
+    padding: 10px;
+}
+.AC{
+    background-color: green;
+    border-radius: 5px;
+    padding: 5px;
+}
+.WA{
+    background-color: red;
+    border-radius: 5px;
+    padding: 2px 9px;
+}
+.CE{
+    background-color: yellow;
 }

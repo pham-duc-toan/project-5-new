@@ -23,9 +23,6 @@ const Topic =()=>{
                         <td><NavLink to={`/quiz/${item.id}`}>Làm bài</NavLink></td>
                     </tr> 
                     ))}
-                    
-                    
-                
                 </tbody>
             </table>
         </>

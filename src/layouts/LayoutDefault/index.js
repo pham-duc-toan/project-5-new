@@ -1,7 +1,10 @@
+import { useSelector } from "react-redux";
 
 import { Link, NavLink, Outlet } from "react-router-dom"
 import "./LayoutDefault.scss"
-const layoutDefault = ()=>{
+const LayoutDefault = ()=>{
+    const inforUser = useSelector(state => state.inforUser);
+    // console.log(inforUser);
     return (
         <>
         <header>
@@ -14,7 +17,9 @@ const layoutDefault = ()=>{
                 <NavLink to="/"><div className="menu--item">Home</div></NavLink>
                 <NavLink to="/topic"><div className="menu--item">Topic</div></NavLink>
                 <NavLink to="/answers"><div className="menu--item">Answers History</div></NavLink>
-                <NavLink to="/logout"><div className="menu--item">Log out</div></NavLink>
+                {(inforUser && inforUser.length!=0)?<NavLink to="/logout"><div className="menu--item">Log out</div></NavLink> :<NavLink to="/login"><div className="menu--item">Log in</div></NavLink>}
+                
+                
             </div>
         </header>
         <main>
@@ -24,4 +29,4 @@ const layoutDefault = ()=>{
         </>
     )
 }
-export default layoutDefault;
+export default LayoutDefault;

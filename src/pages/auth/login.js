@@ -47,6 +47,8 @@ const Login = () => {
                 <button type="submit">Đăng nhập</button>
             </form>
             <NavLink to="/register">Chưa có tài khoản ?</NavLink>
+            <br></br>
+            <NavLink to="/">Trở về trang chủ</NavLink>
         </>
     )
 }

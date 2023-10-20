@@ -26,6 +26,9 @@ a {
     color: black;
     text-decoration: none;
   }
+a.active{
+    font-weight: 700;
+}
 body{
     min-height: 100vh;
     position: relative;
